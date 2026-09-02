@@ -1,0 +1,52 @@
+[
+    {
+        "id": "u1",
+        "phone": "09123456789",
+        "password": "test1234",
+        "nationalCode": "988898989",
+        "role": "patient",
+        "profileId": "p1",
+        "email": "zeinab.janati@example.com",
+        "createdAt": "۱۴۰۵/۰۲/۱۴"
+    },
+    {
+        "id": "u2",
+        "phone": "09121112233",
+        "nationalCode": "988898989",
+        "password": "test1234",
+        "role": "patient",
+        "profileId": "p2",
+        "email": "amir.hosseini@example.com",
+        "createdAt": "۱۴۰۵/۰۱/۰۵"
+    },
+    {
+        "id": "u3",
+        "phone": "09354445566",
+        "nationalCode": "988898989",
+        "password": "test1234",
+        "role": "doctor",
+        "profileId": "d1",
+        "email": "sara.mohammadi@example.com",
+        "createdAt": "۱۴۰۴/۱۱/۰۲"
+    },
+    {
+        "id": "u4",
+        "phone": "09127778899",
+        "nationalCode": "988898989",
+        "password": "test1234",
+        "role": "doctor",
+        "profileId": "d2",
+        "email": "ali.rezaei@example.com",
+        "createdAt": "۱۴۰۵/۰۵/۰۹"
+    },
+    {
+        "id": "u5",
+        "phone": "09120000000",
+        "nationalCode": "0000000000",
+        "password": "admin1234",
+        "role": "admin",
+        "profileId": "a1",
+        "email": "admin@gesh.ir",
+        "createdAt": "۱۴۰۳/۰۶/۰۱"
+    }
+]

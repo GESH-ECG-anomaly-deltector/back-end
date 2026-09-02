@@ -1,0 +1,114 @@
+[
+    {
+        "recId": "1042",
+        "patientId": "p1",
+        "lastRecDate": "۱۴۰۵/۰۵/۱۲ — ۰۹:۲۴",
+        "leadCount": 12,
+        "duration": 10,
+        "sampleRate": 500,
+        "signalQuality": 96,
+        "bpm": 78,
+        "status": "reviewed",
+        "primaryDiagnosisCode": "NSR",
+        "diagnoses": [
+            { "code": "NSR", "label": "ریتم سینوسی طبیعی", "confidence": 94 },
+            { "code": "SB", "label": "برادی‌کاردی خفیف", "confidence": 4 },
+            { "code": "AF", "label": "فیبریلاسیون دهلیزی", "confidence": 2 }
+        ],
+        "leads": [
+            { "name": "Lead |", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead ||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead |||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVF", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVL", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVR", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"}
+        ],
+        "doctorNote": {
+            "doctorName": "دکتر سارا محمدی",
+            "confirmedAt": "۱۴۰۵/۰۵/۱۳",
+            "text": "ریتم سینوسی طبیعی است؛ کنترل دوره‌ای شش ماهه کافی است."
+        }
+    },
+    {
+        "recId": "1038",
+        "patientId": "p1",
+        "lastRecDate": "۱۴۰۵/۰۴/۲۰ — ۱۱:۱۰",
+        "leadCount": 12,
+        "duration": 10,
+        "sampleRate": 500,
+        "signalQuality": 91,
+        "bpm": 82,
+        "status": "pending",
+        "primaryDiagnosisCode": "SB",
+        "diagnoses": [
+            { "code": "NSR", "label": "ریتم سینوسی طبیعی", "confidence": 89 },
+            { "code": "SB", "label": "برادی‌کاردی خفیف", "confidence": 8 },
+            { "code": "AF", "label": "فیبریلاسیون دهلیزی", "confidence": 3 }
+        ],
+        "doctorNote": null,
+        "leads": [
+            { "name": "Lead |", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead ||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead |||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVF", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVL", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVR", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"}
+        ]
+    },
+    {
+        "recId": "0997",
+        "patientId": "p2",
+        "lastRecDate": "۱۴۰۵/۰۵/۰۱ — ۱۶:۴۵",
+        "leadCount": 12,
+        "duration": 30,
+        "sampleRate": 500,
+        "signalQuality": 88,
+        "bpm": 102,
+        "status": "reviewed",
+        "primaryDiagnosisCode": "AF",
+        "diagnoses": [
+            { "code": "SB", "label": "برادی‌کاردی خفیف", "confidence": 55 },
+            { "code": "NSR", "label": "ریتم سینوسی طبیعی", "confidence": 40 },
+            { "code": "AF", "label": "فیبریلاسیون دهلیزی", "confidence": 5 }
+        ],
+        "leads": [
+            { "name": "Lead |", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead ||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead |||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVF", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVL", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVR", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"}
+        ],
+        "doctorNote": {
+            "doctorName": "دکتر سارا محمدی",
+            "confirmedAt": "۱۴۰۵/۰۵/۰۲",
+            "text": "الگوی تاکی‌کاردی خفیف مشاهده می‌شود. پیگیری با هولتر ۲۴ ساعته توصیه می‌شود."
+        }
+    },
+    {
+        "recId": "0954",
+        "patientId": "p3",
+        "lastRecDate": "۱۴۰۵/۰۴/۱۵ — ۰۸:۳۰",
+        "leadCount": 12,
+        "duration": 10,
+        "sampleRate": 500,
+        "signalQuality": 97,
+        "bpm": 71,
+        "status": "pending",
+        "primaryDiagnosisCode": "SB",
+        "diagnoses": [
+            { "code": "NSR", "label": "ریتم سینوسی طبیعی", "confidence": 98 },
+            { "code": "SB", "label": "برادی‌کاردی خفیف", "confidence": 1 },
+            { "code": "AF", "label": "فیبریلاسیون دهلیزی", "confidence": 1 }
+        ],
+        "leads": [
+            { "name": "Lead |", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead ||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead |||", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVF", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVL", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"},
+            { "name": "Lead aVR", "graph": "<div className='w-[11.5rem] h-[3.25rem] bg-primary rounded-[0.775rem]'><div/>"}
+        ],
+        "doctorNote": null
+    }
+]

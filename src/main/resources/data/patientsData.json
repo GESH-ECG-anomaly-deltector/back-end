@@ -1,0 +1,41 @@
+[
+    {
+        "id": "p1",
+        "name": "زینب جنتی",
+        "patientCode": "PT-204",
+        "first2letters": "زی",
+        "age": 34,
+        "gender": "زن",
+        "assignedDoctorId": null,
+        "bloodType": "O+",
+        "riskLevel": "low",
+        "city": "تهران",
+        "email": "zeinab.janati@example.com"
+    },
+    {
+        "id": "p2",
+        "name": "امیر حسینی",
+        "patientCode": "PT-205",
+        "first2letters": "ام",
+        "age": 58,
+        "gender": "مرد",
+        "assignedDoctorId": "d1",
+        "bloodType": "O-",
+        "riskLevel": "medium",
+        "city": "اصفهان",
+        "email": "amir.hosseini@example.com"
+    },
+    {
+        "id": "p3",
+        "name": "مریم اکبری",
+        "patientCode": "PT-206",
+        "first2letters": "مر",
+        "age": 45,
+        "gender": "زن",
+        "assignedDoctorId": "d2",
+        "bloodType": "A+",
+        "riskLevel": "high",
+        "city": "شیراز",
+        "email": "maryam.akbari@example.com"
+    }
+]
