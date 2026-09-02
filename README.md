@@ -1,1 +1,1 @@
-This is the backend of the project GESH.
+back-end development of GESH project
