@@ -1,6 +1,5 @@
 package com.gesh.backend.util;
 
-
 public final class NationalCodeUtil {
 
     private NationalCodeUtil() {
