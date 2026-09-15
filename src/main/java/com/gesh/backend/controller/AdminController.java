@@ -33,4 +33,9 @@ public class AdminController {
 
     @PostMapping("/doctors/{doctorId}/reject")
     public Doctor reject(@PathVariable String doctorId) { return adminService.rejectDoctor(doctorId); }
+
+    @PatchMapping("/users/{userId}/active")
+    public UserSummaryResponse setActive(@PathVariable String userId, @RequestParam boolean active) {
+        return adminService.setUserActive(userId, active);
+    }
 }

@@ -1,8 +1,10 @@
 package com.gesh.backend.service;
 
 import com.gesh.backend.dto.UserSummaryResponse;
+import com.gesh.backend.model.AccountStatus;
 import com.gesh.backend.model.Doctor;
 import com.gesh.backend.model.Patient;
+import com.gesh.backend.model.User;
 import com.gesh.backend.repository.DoctorRepository;
 import com.gesh.backend.repository.EcgRecordRepository;
 import com.gesh.backend.repository.UserRepository;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.management.ManagementFactory;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 
@@ -24,7 +27,7 @@ public class AdminService {
     private final ProfileService profileService;
 
     public AdminService(DoctorRepository doctorRepository, EcgRecordRepository ecgRecordRepository,
-                         UserRepository userRepository, ProfileService profileService) {
+                        UserRepository userRepository, ProfileService profileService) {
         this.doctorRepository = doctorRepository;
         this.ecgRecordRepository = ecgRecordRepository;
         this.userRepository = userRepository;
@@ -32,36 +35,58 @@ public class AdminService {
     }
 
     public List<UserSummaryResponse> getAllUsers() {
-
         return userRepository.findAll().stream()
-                .map(user -> {
-                    String name = null;
-                    String medicalCode = null;
-
-                    Object profile = profileService.resolveProfile(user);
-
-                    if (profile instanceof Doctor doctor) {
-                        name = doctor.getName();
-                        medicalCode = doctor.getMedicalCode();
-                    } else if (profile instanceof Patient patient) {
-                        name = patient.getName();
-                    }
-
-                    return new UserSummaryResponse(
-                            user.getId(),
-                            user.getPhone(),
-                            user.getEmail(),
-                            user.getNationalCode(),
-                            user.getRole(),
-                            user.getProfileId(),
-                            user.getCreatedAt(),
-                            user.getStatus(),
-                            name,
-                            medicalCode
-                    );
-                }).toList();
+                .map(this::toSummary)
+                .toList();
     }
 
+    private UserSummaryResponse toSummary(User user) {
+        String name = null;
+        String medicalCode = null;
+        String doctorApprovalStatus = null;
+
+        Object profile = profileService.resolveProfile(user);
+
+        if (profile instanceof Doctor doctor) {
+            name = doctor.getName();
+            medicalCode = doctor.getMedicalCode();
+            doctorApprovalStatus = doctor.getStatus();
+        } else if (profile instanceof Patient patient) {
+            name = patient.getName();
+        }
+
+        return new UserSummaryResponse(
+                user.getId(),
+                user.getPhone(),
+                user.getEmail(),
+                user.getNationalCode(),
+                user.getRole(),
+                user.getProfileId(),
+                user.getCreatedAt(),
+                user.getLastLoginAt(),
+                user.getStatus(),
+                doctorApprovalStatus,
+                name,
+                medicalCode
+        );
+    }
+
+    public UserSummaryResponse setUserActive(String userId, boolean active) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("کاربر یافت نشد"));
+
+        if ("doctor".equals(user.getRole())) {
+            Doctor doctor = doctorRepository.findById(user.getProfileId())
+                    .orElseThrow(() -> new IllegalArgumentException("پروفایل پزشک یافت نشد"));
+            doctor.setStatus(active ? "approved" : "rejected");
+            doctorRepository.save(doctor);
+        } else {
+            user.setStatus(active ? AccountStatus.ACTIVE : AccountStatus.INACTIVE);
+            userRepository.save(user);
+        }
+
+        return toSummary(user);
+    }
 
     public List<Doctor> getPendingDoctors() {
         return doctorRepository.findByStatus("pending");
@@ -94,9 +119,9 @@ public class AdminService {
         LocalDate today = LocalDate.now();
         long todayRecords = ecgRecordRepository.findAll().stream()
                 .filter(ecgRecord ->
-                            ecgRecord.getCreatedAt() != null &&
-                            ecgRecord.getCreatedAt().startsWith(today.toString())
-                        ).count();
+                        ecgRecord.getCreatedAt() != null &&
+                                LocalDate.ofInstant(ecgRecord.getCreatedAt(), ZoneId.systemDefault()).equals(today)
+                ).count();
 
         OperatingSystemMXBean osBean =
                 (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
@@ -106,22 +131,16 @@ public class AdminService {
                 ? Math.round( cpuLoad * 1000.0 ) / 10.0
                 : 0;
 
-        //placeholders:
         double avgInferenceTime = 1.3;
-
         double modelAccuracy = 94.2;
-
 
         return new AdminStatsResponse(
                 todayRecords,
                 "+0",
-
                 serverLoad,
                 "پایدار",
-
                 avgInferenceTime,
                 "-0.2",
-
                 modelAccuracy,
                 "+0.8"
         );

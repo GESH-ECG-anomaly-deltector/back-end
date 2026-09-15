@@ -15,4 +15,5 @@ public class Diagnosis {
     @Column(columnDefinition = "TEXT")
     private String label;
     private int confidence;
+    private String modelSource;
 }

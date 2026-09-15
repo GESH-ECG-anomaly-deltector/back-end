@@ -7,10 +7,10 @@ import com.gesh.backend.model.Patient;
 import com.gesh.backend.repository.AssignmentRequestRepository;
 import com.gesh.backend.repository.DoctorRepository;
 import com.gesh.backend.repository.PatientRepository;
+import com.gesh.backend.util.JalaliDateUtil;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,10 +20,9 @@ public class AssignmentService {
     private final PatientRepository patientRepository;
     private final DoctorRepository doctorRepository;
     private final AssignmentRequestRepository assignmentRequestRepository;
-    private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
 
     public AssignmentService(PatientRepository patientRepository, DoctorRepository doctorRepository,
-                              AssignmentRequestRepository assignmentRequestRepository) {
+                             AssignmentRequestRepository assignmentRequestRepository) {
         this.patientRepository = patientRepository;
         this.doctorRepository = doctorRepository;
         this.assignmentRequestRepository = assignmentRequestRepository;
@@ -55,7 +54,7 @@ public class AssignmentService {
                 patientId,
                 doctorId,
                 "pending",
-                LocalDateTime.now().format(FMT),
+                JalaliDateUtil.formatDateTimeCompact(LocalDateTime.now()),
                 null
         );
         return assignmentRequestRepository.save(request);
@@ -100,7 +99,7 @@ public class AssignmentService {
         patientRepository.save(patient);
 
         request.setStatus("accepted");
-        request.setRespondedAt(LocalDateTime.now().format(FMT));
+        request.setRespondedAt(JalaliDateUtil.formatDateTimeCompact(LocalDateTime.now()));
         return assignmentRequestRepository.save(request);
     }
 
@@ -115,7 +114,7 @@ public class AssignmentService {
         }
 
         request.setStatus("rejected");
-        request.setRespondedAt(LocalDateTime.now().format(FMT));
+        request.setRespondedAt(JalaliDateUtil.formatDateTimeCompact(LocalDateTime.now()));
         return assignmentRequestRepository.save(request);
     }
 

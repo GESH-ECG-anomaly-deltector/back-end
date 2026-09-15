@@ -29,7 +29,8 @@ public class User {
     @Column(nullable = false)
     private String role;       // "patient" | "doctor" | "admin"
     private String profileId;
-    private String createdAt; //به شمسی باید تبدیل بشهTODO:
+    private String createdAt;
+    private String lastLoginAt;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

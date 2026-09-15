@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ public class EcgRecord {
     private String recId;
     private String patientId;
     private String lastRecDate;
-    private String createdAt;
+    private Instant createdAt;
     private int leadCount;
     private int duration;
     private int sampleRate;

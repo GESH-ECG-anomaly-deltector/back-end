@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface EcgRecordRepository extends JpaRepository<EcgRecord, String> {
-    List<EcgRecord> findByPatientId(String patientId);
+    List<EcgRecord> findByPatientIdOrderByCreatedAtDesc(String patientId);
 }

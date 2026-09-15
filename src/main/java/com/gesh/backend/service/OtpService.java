@@ -61,7 +61,7 @@ public class OtpService {
         lastSentAt.put(normalized, Instant.now());
     }
 
-    public boolean verifyOtp(String email, String code) {
+    public boolean isCodeValid(String email, String code) {
         String normalized = email.trim().toLowerCase();
         OtpEntry entry = otpStore.get(normalized);
 
@@ -82,9 +82,13 @@ public class OtpService {
             return false;
         }
 
+        return true;
+    }
+
+    public void consume(String email) {
+        String normalized = email.trim().toLowerCase();
         otpStore.remove(normalized);
         lastSentAt.remove(normalized);
-        return true;
     }
 
     private void sendRealEmail(String email, String code) {

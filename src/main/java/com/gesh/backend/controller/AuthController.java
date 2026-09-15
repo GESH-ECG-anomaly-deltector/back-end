@@ -1,6 +1,7 @@
 package com.gesh.backend.controller;
 
 import com.gesh.backend.dto.AuthResponse;
+import com.gesh.backend.dto.EmailLoginRequest;
 import com.gesh.backend.dto.LoginRequest;
 import com.gesh.backend.dto.SendOtpRequest;
 import com.gesh.backend.dto.SignupRequest;
@@ -28,6 +29,11 @@ public class AuthController {
         return authService.login(request);
     }
 
+    @PostMapping("/login/email")
+    public AuthResponse loginWithEmailPassword(@Valid @RequestBody EmailLoginRequest request) {
+        return authService.loginWithEmailPassword(request);
+    }
+
     @PostMapping("/signup")
     public AuthResponse signup(@Valid @RequestBody SignupRequest request) {
         return authService.signup(request);
@@ -45,10 +51,12 @@ public class AuthController {
 
     @PostMapping("/verify-otp")
     public AuthResponse verifyOtp(@Valid @RequestBody VerifyOtpRequest request) {
-        boolean isValid = otpService.verifyOtp(request.getEmail(), request.getCode());
-        if (!isValid) {
+        if (!otpService.isCodeValid(request.getEmail(), request.getCode())) {
             throw new IllegalArgumentException("کد وارد شده اشتباه یا منقضی شده است");
         }
-        return authService.loginWithEmail(request.getEmail());
+
+        AuthResponse response = authService.loginWithEmail(request.getEmail());
+        otpService.consume(request.getEmail());
+        return response;
     }
 }

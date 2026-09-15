@@ -17,6 +17,9 @@ public class SignupWithEmailRequest {
     @Email(message = "فرمت ایمیل درست نیست")
     private String email;
 
+    @NotBlank(message = "شماره موبایل الزامی است")
+    private String phone;
+
     @NotBlank(message = "کد تایید الزامی است")
     @Size(min = 6, max = 6, message = "کد باید ۶ رقم باشد")
     private String code;
