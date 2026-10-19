@@ -32,6 +32,7 @@ public class EcgRecord {
     @OrderColumn(name = "position")
     private List<Diagnosis> diagnoses;
 
+
     @ElementCollection
     @CollectionTable(name = "ecg_record_leads", joinColumns = @JoinColumn(name = "record_id"))
     @OrderColumn(name = "position")
